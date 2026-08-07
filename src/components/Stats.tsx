@@ -6,7 +6,7 @@ const STATS = [
 
 export default function Stats() {
   return (
-    <section id="chiffres" className="border-t border-ink-900/80 bg-ink-950 py-20 sm:py-24">
+    <section id="chiffres" className="border-t border-line-soft/80 bg-canvas py-20 sm:py-24">
       <div className="mx-auto max-w-5xl px-5 sm:px-6">
         <div className="grid gap-8 sm:grid-cols-3">
           {STATS.map((s, i) => (
@@ -15,10 +15,10 @@ export default function Stats() {
               className="reveal text-center"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <p className="font-display text-5xl font-bold tracking-tight text-accent-400 sm:text-6xl">
+              <p className="font-display text-5xl font-bold tracking-tight text-brand sm:text-6xl">
                 {s.value}
               </p>
-              <p className="mt-2 text-sm font-medium uppercase tracking-wide text-ink-400">
+              <p className="mt-2 text-sm font-medium uppercase tracking-wide text-fg-subtle">
                 {s.label}
               </p>
             </div>

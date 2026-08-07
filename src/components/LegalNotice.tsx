@@ -15,52 +15,52 @@ const INFO = [
 
 export default function LegalNotice() {
   return (
-    <div className="min-h-screen bg-ink-950 pt-24 pb-20">
+    <div className="min-h-screen bg-canvas pt-24 pb-20">
       <div className="mx-auto max-w-3xl px-5 sm:px-6">
         <a
           href="/"
-          className="inline-flex items-center gap-2 text-sm font-medium text-ink-300 transition-colors hover:text-accent-300"
+          className="inline-flex items-center gap-2 text-sm font-medium text-fg-muted transition-colors hover:text-brand"
         >
           <ArrowLeft size={16} />
           Retour à l'accueil
         </a>
 
-        <h1 className="mt-8 font-display text-3xl font-semibold tracking-tight text-ink-100 sm:text-4xl">
+        <h1 className="mt-8 font-display text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
           Mentions légales
         </h1>
 
         <div className="mt-10 space-y-10">
           <section>
-            <h2 className="font-display text-lg font-semibold text-accent-400">
+            <h2 className="font-display text-lg font-semibold text-brand">
               Éditeur du site
             </h2>
-            <dl className="mt-4 divide-y divide-ink-800/60 rounded-xl border border-ink-800/60 bg-ink-900/40">
+            <dl className="mt-4 divide-y divide-line/60 rounded-xl border border-line/60 bg-panel/40">
               {INFO.map((item) => (
                 <div
                   key={item.label}
                   className="grid grid-cols-1 gap-1 px-5 py-3.5 sm:grid-cols-[1fr_1.4fr] sm:gap-4"
                 >
-                  <dt className="text-sm font-medium text-ink-400">{item.label}</dt>
-                  <dd className="text-sm text-ink-100">{item.value}</dd>
+                  <dt className="text-sm font-medium text-fg-subtle">{item.label}</dt>
+                  <dd className="text-sm text-fg">{item.value}</dd>
                 </div>
               ))}
             </dl>
           </section>
 
           <section>
-            <h2 className="font-display text-lg font-semibold text-accent-400">
+            <h2 className="font-display text-lg font-semibold text-brand">
               Hébergeur du site
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-ink-300">
+            <p className="mt-4 text-sm leading-relaxed text-fg-muted">
               [à compléter par le client — nom, adresse, téléphone de l'hébergeur]
             </p>
           </section>
 
           <section>
-            <h2 className="font-display text-lg font-semibold text-accent-400">
+            <h2 className="font-display text-lg font-semibold text-brand">
               Propriété intellectuelle
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-ink-300">
+            <p className="mt-4 text-sm leading-relaxed text-fg-muted">
               L'ensemble des éléments présents sur ce site (textes, graphismes, logos, mises en page,
               structure) est la propriété d'AUVERTIME ou de ses partenaires et est protégé par le
               droit de la propriété intellectuelle. Toute reproduction, représentation, modification
@@ -70,10 +70,10 @@ export default function LegalNotice() {
           </section>
 
           <section>
-            <h2 className="font-display text-lg font-semibold text-accent-400">
+            <h2 className="font-display text-lg font-semibold text-brand">
               Données personnelles
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-ink-300">
+            <p className="mt-4 text-sm leading-relaxed text-fg-muted">
               Ce site ne collecte aucune donnée personnelle en dehors du formulaire de contact. Les
               informations transmises via ce formulaire sont utilisées uniquement pour répondre à
               votre demande et ne font l'objet d'aucune cession à des tiers. Conformément au Règlement
@@ -84,10 +84,10 @@ export default function LegalNotice() {
           </section>
 
           <section>
-            <h2 className="font-display text-lg font-semibold text-accent-400">
+            <h2 className="font-display text-lg font-semibold text-brand">
               Cookies
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-ink-300">
+            <p className="mt-4 text-sm leading-relaxed text-fg-muted">
               Ce site n'utilise pas de cookies de suivi à des fins publicitaires. Le cas échéant, des
               cookies techniques strictement nécessaires au bon fonctionnement du site peuvent être
               utilisés. Aucune donnée n'est transmise à des services tiers à des fins d'analyse ou de

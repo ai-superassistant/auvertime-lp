@@ -14,18 +14,95 @@
   --color-accent-700: #047857;
   --color-accent-800: #065f46;
   --color-accent-900: #064e3b;
+}
 
-  --color-ink-950: #0a0f0d;
-  --color-ink-900: #0f1614;
-  --color-ink-850: #131c19;
-  --color-ink-800: #18221f;
-  --color-ink-700: #1f2c28;
-  --color-ink-600: #2a3a35;
-  --color-ink-500: #3a4a44;
-  --color-ink-400: #6b7d77;
-  --color-ink-300: #9aa8a3;
-  --color-ink-200: #c6d1cd;
-  --color-ink-100: #e3eae7;
+/*
+ * Semantic color tokens — the values swap between light and dark (see the
+ * :root blocks below). `@theme inline` makes the generated utilities emit
+ * `var(--token)` instead of a resolved value, so overriding the underlying
+ * custom properties at runtime re-themes the whole site.
+ */
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-panel: var(--panel);
+  --color-card: var(--card);
+  --color-chip: var(--chip);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-edge: var(--edge);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-fg-faint: var(--fg-faint);
+  --color-on-accent: var(--on-accent);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+}
+
+/* Dark theme — also the no-JS fallback. */
+:root,
+:root[data-theme='dark'] {
+  --canvas: #0a0f0d;
+  --panel: #0f1614;
+  --card: #131c19;
+  --chip: #18221f;
+  --line: #1f2c28;
+  --line-soft: #0f1614;
+  --edge: #2a3a35;
+  --fg: #e3eae7;
+  --fg-muted: #9aa8a3;
+  --fg-subtle: #6b7d77;
+  --fg-faint: #3a4a44;
+  --on-accent: #06120e;
+  --brand: #34d399;
+  --brand-hover: #6ee7b7;
+  --grid-line: #ffffff;
+  --grid-opacity: 0.04;
+  color-scheme: dark;
+}
+
+/* Light theme. */
+:root[data-theme='light'] {
+  --canvas: #f6f8f7;
+  --panel: #eef2f0;
+  --card: #ffffff;
+  --chip: #eaf0ed;
+  --line: #dde5e2;
+  --line-soft: #e7ecea;
+  --edge: #c6d0cb;
+  --fg: #0f1614;
+  --fg-muted: #4a5a53;
+  --fg-subtle: #64726b;
+  --fg-faint: #93a09a;
+  --on-accent: #05130d;
+  --brand: #059669;
+  --brand-hover: #047857;
+  --grid-line: #0f1614;
+  --grid-opacity: 0.05;
+  color-scheme: light;
+}
+
+/* Follow the OS when the visitor hasn't picked a theme (no data-theme set). */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --canvas: #f6f8f7;
+    --panel: #eef2f0;
+    --card: #ffffff;
+    --chip: #eaf0ed;
+    --line: #dde5e2;
+    --line-soft: #e7ecea;
+    --edge: #c6d0cb;
+    --fg: #0f1614;
+    --fg-muted: #4a5a53;
+    --fg-subtle: #64726b;
+    --fg-faint: #93a09a;
+    --on-accent: #05130d;
+    --brand: #059669;
+    --brand-hover: #047857;
+    --grid-line: #0f1614;
+    --grid-opacity: 0.05;
+    color-scheme: light;
+  }
 }
 
 html {
@@ -34,16 +111,17 @@ html {
 }
 
 body {
-  background-color: var(--color-ink-950);
-  color: var(--color-ink-100);
+  background-color: var(--canvas);
+  color: var(--fg);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
   background-color: var(--color-accent-500);
-  color: var(--color-ink-950);
+  color: var(--on-accent);
 }
 
 /* Scroll reveal */
@@ -59,6 +137,85 @@ body {
   transform: translateY(0);
 }
 
+/* Hero illustration — ambient motion */
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+@keyframes float-y-alt {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(8px, -10px);
+  }
+}
+@keyframes spin-cw {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-ccw {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.6);
+  }
+}
+
+.anim-float {
+  animation: float-y 6s ease-in-out infinite;
+}
+.anim-float-slow {
+  animation: float-y 9s ease-in-out infinite;
+}
+.anim-float-alt {
+  animation: float-y-alt 7s ease-in-out infinite;
+}
+.anim-drift {
+  animation: drift 8s ease-in-out infinite;
+}
+/* SVG groups spin around the ring centre (160,160 in the 320×320 viewBox) */
+.anim-orbit {
+  transform-origin: 160px 160px;
+  transform-box: view-box;
+  animation: spin-cw 32s linear infinite;
+}
+.anim-orbit-rev {
+  transform-origin: 160px 160px;
+  transform-box: view-box;
+  animation: spin-ccw 26s linear infinite;
+}
+.anim-twinkle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: twinkle 3.5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -67,5 +224,14 @@ body {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .anim-float,
+  .anim-float-slow,
+  .anim-float-alt,
+  .anim-drift,
+  .anim-orbit,
+  .anim-orbit-rev,
+  .anim-twinkle {
+    animation: none;
   }
 }

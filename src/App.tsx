@@ -10,6 +10,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import LegalNotice from '@/components/LegalNotice';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { initThemeSync } from '@/lib/theme';
 
 function usePathname() {
   const [path, setPath] = useState(() => window.location.pathname);
@@ -26,6 +27,10 @@ export default function App() {
   const isLegal = path === '/mentions-legales';
 
   useScrollReveal([isLegal]);
+
+  useEffect(() => {
+    initThemeSync();
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
