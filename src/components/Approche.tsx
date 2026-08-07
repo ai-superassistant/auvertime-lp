@@ -1,0 +1,38 @@
+import SectionHeading from '@/components/SectionHeading';
+
+const STEPS = [
+  { num: '01', title: 'Comprendre', text: 'Analyser vos enjeux et vos objectifs.' },
+  { num: '02', title: 'Concevoir', text: 'Imaginer une solution adaptée à votre entreprise.' },
+  { num: '03', title: 'Déployer', text: 'Créer des outils performants et évolutifs.' },
+  { num: '04', title: 'Optimiser', text: 'Mesurer, analyser et améliorer en continu.' },
+];
+
+export default function Approche() {
+  return (
+    <section id="approche" className="border-t border-ink-900/80 bg-ink-950 py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+        <SectionHeading eyebrow="Notre approche" title="Une méthode claire, en quatre temps.">
+          De la première rencontre à l'amélioration continue, chaque étape compte.
+        </SectionHeading>
+
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {STEPS.map((step, i) => (
+            <div
+              key={step.num}
+              className="reveal relative rounded-2xl border border-ink-700/70 bg-ink-850/50 p-7 transition-colors duration-300 hover:border-accent-500/40"
+              style={{ transitionDelay: `${i * 90}ms` }}
+            >
+              <span className="font-display text-4xl font-bold text-accent-500/30">{step.num}</span>
+              <h3 className="mt-3 font-display text-lg font-semibold text-ink-100">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink-300">{step.text}</p>
+
+              {i < STEPS.length - 1 && (
+                <div className="absolute right-4 top-1/2 hidden h-px w-8 -translate-y-1/2 bg-gradient-to-r from-accent-500/40 to-transparent lg:block" />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

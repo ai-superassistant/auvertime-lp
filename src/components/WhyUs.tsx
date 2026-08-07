@@ -1,0 +1,37 @@
+import { Check } from 'lucide-react';
+import SectionHeading from '@/components/SectionHeading';
+
+const REASONS = [
+  'Une expertise digitale globale',
+  'Des solutions sur mesure',
+  'Une approche orientée performance',
+  'Un accompagnement durable',
+  'Une équipe réactive et engagée',
+];
+
+export default function WhyUs() {
+  return (
+    <section id="pourquoi" className="border-t border-ink-900/80 bg-ink-900/40 py-20 sm:py-28">
+      <div className="mx-auto max-w-5xl px-5 sm:px-6">
+        <SectionHeading eyebrow="Pourquoi AUVERTIME" title="Ce qui nous distingue.">
+          Cinq engagements concrets, au service de vos résultats.
+        </SectionHeading>
+
+        <div className="reveal mt-14 grid gap-4 sm:grid-cols-2">
+          {REASONS.map((reason, i) => (
+            <div
+              key={reason}
+              className="flex items-center gap-4 rounded-xl border border-ink-700/60 bg-ink-850/50 px-5 py-4 transition-colors duration-300 hover:border-accent-500/40 hover:bg-ink-850"
+              style={{ transitionDelay: `${i * 70}ms` }}
+            >
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent-500/15 text-accent-400">
+                <Check size={18} />
+              </span>
+              <span className="text-base font-medium text-ink-100">{reason}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
