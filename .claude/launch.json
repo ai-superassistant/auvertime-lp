@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "auvertime-dev", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev:preview"], "port": 5173 }
+  ]
+}
