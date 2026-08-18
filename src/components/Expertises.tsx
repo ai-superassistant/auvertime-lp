@@ -3,6 +3,14 @@ import SectionHeading from '@/components/SectionHeading';
 
 const EXPERTISES = [
   {
+    icon: Compass,
+    title: 'Stratégie digitale',
+    tagline: 'Construire une présence digitale performante commence par une vision claire.',
+    bullets: ['Audit et diagnostic digital', 'Positionnement et objectifs', 'Roadmap et priorisation'],
+    description:
+      `Nous vous accompagnons dans la définition de votre stratégie afin d'aligner vos objectifs business avec les meilleurs leviers digitaux.`,
+  },
+  {
     icon: Code2,
     title: 'Développement web',
     tagline: 'Des sites internet conçus pour valoriser votre marque et accompagner votre développement.',
@@ -16,13 +24,6 @@ const EXPERTISES = [
     bullets: ['Google Ads', 'Meta Ads', 'LinkedIn Ads', 'Native Ads', 'Microsoft Ads', 'YouTube Ads', 'Remarketing'],
     description: 'Chaque campagne est optimisée pour maximiser votre visibilité et améliorer vos performances.',
     isTagGrid: true,
-  },
-  {
-    icon: Compass,
-    title: 'Stratégie digitale',
-    tagline: 'Construire une présence digitale performante commence par une vision claire.',
-    description:
-      `Nous vous accompagnons dans la définition de votre stratégie afin d'aligner vos objectifs business avec les meilleurs leviers digitaux.`,
   },
 ];
 

@@ -52,7 +52,26 @@ export default function LegalNotice() {
               Hébergeur du site
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-fg-muted">
-              [à compléter par le client — nom, adresse, téléphone de l'hébergeur]
+              Le site est hébergé par Vercel Inc., société de droit américain, dont le siège social
+              est situé au 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.
+              <br />
+              Site internet :{' '}
+              <a
+                href="https://vercel.com"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-brand transition-colors hover:text-brand-hover"
+              >
+                https://vercel.com
+              </a>
+              <br />
+              Contact :{' '}
+              <a
+                href="mailto:privacy@vercel.com"
+                className="text-brand transition-colors hover:text-brand-hover"
+              >
+                privacy@vercel.com
+              </a>
             </p>
           </section>
 

@@ -5,6 +5,7 @@ import About from '@/components/About';
 import Expertises from '@/components/Expertises';
 import Approche from '@/components/Approche';
 import WhyUs from '@/components/WhyUs';
+import CasClients from '@/components/CasClients';
 import Stats from '@/components/Stats';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -54,6 +55,7 @@ export default function App() {
         <Expertises />
         <Approche />
         <WhyUs />
+        <CasClients />
         <Stats />
         <Contact />
       </main>
