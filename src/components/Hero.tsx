@@ -1,5 +1,33 @@
 import { ArrowRight } from 'lucide-react';
 import CTAButton from '@/components/CTAButton';
+import { GoogleAnalyticsLogo, GoogleGLogo, MetaLogo } from '@/components/BrandLogos';
+
+const PARTNERS = [
+  {
+    Logo: GoogleAnalyticsLogo,
+    label: 'Google Analytics',
+    logoClass: 'h-6 w-6',
+    position: 'left-[14%] top-[10%]',
+    anim: 'anim-float',
+    delay: '0s',
+  },
+  {
+    Logo: GoogleGLogo,
+    label: 'Google Partner',
+    logoClass: 'h-6 w-6',
+    position: 'right-[12%] top-[24%]',
+    anim: 'anim-float-alt',
+    delay: '-1.4s',
+  },
+  {
+    Logo: MetaLogo,
+    label: 'Meta Business Partner',
+    logoClass: 'h-6 w-10',
+    position: 'bottom-[10%] left-[28%]',
+    anim: 'anim-drift',
+    delay: '-0.7s',
+  },
+];
 
 export default function Hero() {
   return (
@@ -53,20 +81,19 @@ export default function Hero() {
             <div className="absolute inset-0 rounded-[2rem] border border-line/60 bg-gradient-to-br from-card to-panel" />
             <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(80%_80%_at_70%_20%,rgba(16,185,129,0.18),transparent_70%)]" />
 
-            {/* Floating shapes */}
-            <div className="anim-float absolute left-[12%] top-[14%] h-24 w-24 rounded-2xl border border-accent-400/40 bg-accent-500/10 backdrop-blur-sm" />
-            <div
-              className="anim-float-alt absolute right-[14%] top-[22%] h-16 w-16 rounded-full border border-accent-300/40 bg-accent-500/20"
-              style={{ animationDelay: '-1s' }}
-            />
-            <div
-              className="anim-drift absolute bottom-[16%] left-[20%] h-20 w-32 rounded-xl border border-edge bg-chip/70 backdrop-blur-sm"
-              style={{ animationDelay: '-2s' }}
-            />
-            <div
-              className="anim-float-slow absolute bottom-[22%] right-[10%] h-28 w-28 rounded-3xl border border-accent-500/30 bg-gradient-to-br from-accent-600/30 to-transparent"
-              style={{ animationDelay: '-0.5s' }}
-            />
+            {/* Floating partner badges */}
+            {PARTNERS.map(({ Logo, label, logoClass, position, anim, delay }) => (
+              <div
+                key={label}
+                className={`${anim} absolute ${position} z-10 flex w-40 flex-col items-center gap-2.5 rounded-2xl border border-accent-500/20 bg-card/90 px-4 py-4 text-center shadow-xl shadow-black/25 backdrop-blur-sm`}
+                style={{ animationDelay: delay }}
+              >
+                <div className="flex h-7 items-center justify-center">
+                  <Logo className={logoClass} />
+                </div>
+                <span className="text-xs font-semibold leading-tight text-fg">{label}</span>
+              </div>
+            ))}
 
             {/* Ring */}
             <svg
