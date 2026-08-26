@@ -137,6 +137,26 @@ body {
   transform: translateY(0);
 }
 
+/*
+ * Above-the-fold entrance: plain CSS animation instead of the
+ * IntersectionObserver-driven `.reveal`. It plays as soon as the page is
+ * painted, so it isn't stuck at opacity:0 while JS is still downloading /
+ * hydrating — the slow path that made mobile first-loads look frozen.
+ */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.reveal-immediate {
+  animation: reveal-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 /* Hero illustration — ambient motion */
 @keyframes float-y {
   0%,
@@ -224,6 +244,11 @@ body {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .reveal-immediate {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
   .anim-float,
   .anim-float-slow,
