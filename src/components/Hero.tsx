@@ -36,8 +36,8 @@ export default function Hero() {
       {/* Background composition */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_-10%,rgba(16,185,129,0.16),transparent_60%)]" />
-        <div className="absolute -top-24 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-accent-600/20 blur-[120px]" />
-        <div className="absolute bottom-[-20%] left-[-10%] h-[24rem] w-[24rem] rounded-full bg-accent-800/20 blur-[120px]" />
+        <div className="absolute -top-24 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(5,150,105,0.35),transparent_70%)]" />
+        <div className="absolute bottom-[-20%] left-[-10%] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(6,95,70,0.35),transparent_70%)]" />
         <div
           className="absolute inset-0"
           style={{

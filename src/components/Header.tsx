@@ -29,7 +29,7 @@ export default function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'border-b border-line/80 bg-canvas/85 backdrop-blur-md'
+          ? 'border-b border-line/80 bg-canvas/95'
           : 'border-b border-transparent bg-transparent'
       }`}
     >
@@ -78,7 +78,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       <div
-        className={`overflow-hidden border-t border-line/60 bg-canvas/95 backdrop-blur-md transition-[max-height,opacity] duration-300 md:hidden ${
+        className={`overflow-hidden border-t border-line/60 bg-canvas transition-[max-height,opacity] duration-300 md:hidden ${
           open ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
