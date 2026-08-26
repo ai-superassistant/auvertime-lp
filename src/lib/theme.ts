@@ -3,14 +3,9 @@ export type Theme = 'light' | 'dark';
 const KEY = 'theme';
 const listeners = new Set<() => void>();
 
-function systemTheme(): Theme {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
 /** Current theme, read from the <html data-theme> attribute set at boot. */
 export function getTheme(): Theme {
-  const attr = document.documentElement.dataset.theme;
-  return attr === 'light' || attr === 'dark' ? attr : systemTheme();
+  return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
 }
 
 function apply(theme: Theme) {
@@ -33,18 +28,4 @@ export function subscribe(fn: () => void) {
   return () => {
     listeners.delete(fn);
   };
-}
-
-/** Keep following the OS as long as the user hasn't picked a theme manually. */
-export function initThemeSync() {
-  const mq = window.matchMedia('(prefers-color-scheme: dark)');
-  mq.addEventListener('change', () => {
-    let stored: string | null = null;
-    try {
-      stored = localStorage.getItem(KEY);
-    } catch {
-      /* ignore */
-    }
-    if (stored !== 'light' && stored !== 'dark') apply(systemTheme());
-  });
 }

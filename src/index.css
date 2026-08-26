@@ -39,29 +39,8 @@
   --color-brand-hover: var(--brand-hover);
 }
 
-/* Dark theme — also the no-JS fallback. */
+/* Light theme — also the default and the no-JS fallback. */
 :root,
-:root[data-theme='dark'] {
-  --canvas: #0a0f0d;
-  --panel: #0f1614;
-  --card: #131c19;
-  --chip: #18221f;
-  --line: #1f2c28;
-  --line-soft: #0f1614;
-  --edge: #2a3a35;
-  --fg: #e3eae7;
-  --fg-muted: #9aa8a3;
-  --fg-subtle: #6b7d77;
-  --fg-faint: #3a4a44;
-  --on-accent: #06120e;
-  --brand: #34d399;
-  --brand-hover: #6ee7b7;
-  --grid-line: #ffffff;
-  --grid-opacity: 0.04;
-  color-scheme: dark;
-}
-
-/* Light theme. */
 :root[data-theme='light'] {
   --canvas: #f6f8f7;
   --panel: #eef2f0;
@@ -82,27 +61,25 @@
   color-scheme: light;
 }
 
-/* Follow the OS when the visitor hasn't picked a theme (no data-theme set). */
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme]) {
-    --canvas: #f6f8f7;
-    --panel: #eef2f0;
-    --card: #ffffff;
-    --chip: #eaf0ed;
-    --line: #dde5e2;
-    --line-soft: #e7ecea;
-    --edge: #c6d0cb;
-    --fg: #0f1614;
-    --fg-muted: #4a5a53;
-    --fg-subtle: #64726b;
-    --fg-faint: #93a09a;
-    --on-accent: #05130d;
-    --brand: #059669;
-    --brand-hover: #047857;
-    --grid-line: #0f1614;
-    --grid-opacity: 0.05;
-    color-scheme: light;
-  }
+/* Dark theme. */
+:root[data-theme='dark'] {
+  --canvas: #0a0f0d;
+  --panel: #0f1614;
+  --card: #131c19;
+  --chip: #18221f;
+  --line: #1f2c28;
+  --line-soft: #0f1614;
+  --edge: #2a3a35;
+  --fg: #e3eae7;
+  --fg-muted: #9aa8a3;
+  --fg-subtle: #6b7d77;
+  --fg-faint: #3a4a44;
+  --on-accent: #06120e;
+  --brand: #34d399;
+  --brand-hover: #6ee7b7;
+  --grid-line: #ffffff;
+  --grid-opacity: 0.04;
+  color-scheme: dark;
 }
 
 html {

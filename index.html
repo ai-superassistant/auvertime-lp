@@ -6,17 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       // Set the theme before first paint to avoid a flash. Stored choice wins,
-      // otherwise follow the operating system preference.
+      // otherwise default to light.
       (function () {
         try {
           var stored = localStorage.getItem('theme');
-          var theme =
-            stored === 'light' || stored === 'dark'
-              ? stored
-              : window.matchMedia('(prefers-color-scheme: dark)').matches
-                ? 'dark'
-                : 'light';
-          document.documentElement.dataset.theme = theme;
+          document.documentElement.dataset.theme = stored === 'dark' ? 'dark' : 'light';
         } catch (e) {}
       })();
     </script>
@@ -25,7 +19,7 @@
       name="description"
       content="AUVERTIME, agence digitale spécialisée dans le développement web, l'acquisition publicitaire et la stratégie digitale. Des expériences digitales performantes pour développer votre activité."
     />
-    <meta name="theme-color" content="#0a0f0d" />
+    <meta name="theme-color" content="#f6f8f7" />
     <meta property="og:title" content="AUVERTIME — Agence digitale" />
     <meta
       property="og:description"
