@@ -1,5 +1,6 @@
 import { useRef, useState, type FormEvent } from 'react';
 import { Send, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
+import Reveal from '@/components/Reveal';
 
 type FormState = {
   nom: string;
@@ -96,7 +97,7 @@ export default function Contact() {
     <section id="contact" className="border-t border-line-soft/80 bg-panel/40 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div className="reveal">
+          <Reveal>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-brand">
               Contact
             </p>
@@ -116,9 +117,9 @@ export default function Contact() {
                 contact@auvertime.com
               </a>
             </p>
-          </div>
+          </Reveal>
 
-          <div className="reveal" style={{ transitionDelay: '100ms' }}>
+          <Reveal delay={0.1}>
             {status === 'success' ? (
               <div className="flex flex-col items-center justify-center rounded-2xl border border-accent-500/40 bg-card/60 p-12 text-center">
                 <CheckCircle2 size={48} className="text-brand" />
@@ -250,7 +251,7 @@ export default function Contact() {
                 </div>
               </form>
             )}
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

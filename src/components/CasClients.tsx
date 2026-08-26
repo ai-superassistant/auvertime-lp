@@ -1,4 +1,5 @@
 import { TrendingUp } from 'lucide-react';
+import Reveal from '@/components/Reveal';
 import SectionHeading from '@/components/SectionHeading';
 
 const CASES = [
@@ -32,7 +33,7 @@ export default function CasClients() {
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {CASES.map((c, i) => (
-            <div key={c.sector} className="reveal" style={{ transitionDelay: `${i * 90}ms` }}>
+            <Reveal key={c.sector} delay={i * 0.09}>
               <article className="group flex h-full flex-col rounded-2xl border border-line/70 bg-card/60 p-7 transition-[transform,border-color,background-color,box-shadow] duration-200 ease-out hover:-translate-y-1.5 hover:border-accent-500/50 hover:bg-card hover:shadow-2xl hover:shadow-accent-500/10">
                 <div className="mb-6 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-accent-500/30 bg-accent-500/10 text-brand transition-all duration-200 ease-out group-hover:scale-110 group-hover:bg-accent-500/20 group-hover:text-brand-hover">
                   <TrendingUp size={20} />
@@ -50,7 +51,7 @@ export default function CasClients() {
                   <span className="text-sm font-medium text-fg-muted">{c.metricLabel}</span>
                 </div>
               </article>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

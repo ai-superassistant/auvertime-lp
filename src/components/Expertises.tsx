@@ -1,4 +1,5 @@
 import { Code2, Megaphone, Compass, Check } from 'lucide-react';
+import Reveal from '@/components/Reveal';
 import SectionHeading from '@/components/SectionHeading';
 
 const EXPERTISES = [
@@ -39,7 +40,7 @@ export default function Expertises() {
           {EXPERTISES.map((card, i) => {
             const Icon = card.icon;
             return (
-              <div key={card.title} className="reveal" style={{ transitionDelay: `${i * 90}ms` }}>
+              <Reveal key={card.title} delay={i * 0.09}>
                 <article className="group flex h-full flex-col rounded-2xl border border-line/70 bg-card/60 p-7 transition-[transform,border-color,background-color,box-shadow] duration-200 ease-out hover:-translate-y-1.5 hover:border-accent-500/50 hover:bg-card hover:shadow-2xl hover:shadow-accent-500/10">
                   <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-accent-500/30 bg-accent-500/10 text-brand transition-all duration-200 ease-out group-hover:scale-110 group-hover:bg-accent-500/20 group-hover:text-brand-hover">
                     <Icon size={22} />
@@ -78,7 +79,7 @@ export default function Expertises() {
                     {card.description}
                   </p>
                 </article>
-              </div>
+              </Reveal>
             );
           })}
         </div>

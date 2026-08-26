@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import CTAButton from '@/components/CTAButton';
+import Reveal from '@/components/Reveal';
 import { GoogleAnalyticsLogo, GoogleGLogo, MetaLogo } from '@/components/BrandLogos';
 
 const PARTNERS = [
@@ -49,7 +50,7 @@ export default function Hero() {
       </div>
 
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-6 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="reveal-immediate">
+        <Reveal immediate>
           <span className="inline-flex items-center gap-2 rounded-full border border-accent-500/30 bg-accent-500/10 px-3.5 py-1.5 text-xs font-medium text-brand">
             <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />
             Agence digitale · Dev · Acquisition · Stratégie
@@ -73,13 +74,10 @@ export default function Hero() {
               Nous contacter
             </CTAButton>
           </div>
-        </div>
+        </Reveal>
 
         {/* Abstract graphic */}
-        <div
-          className="reveal-immediate relative hidden lg:block"
-          style={{ animationDelay: '120ms' }}
-        >
+        <Reveal immediate delay={0.12} className="relative hidden lg:block">
           <div className="relative aspect-square">
             <div className="absolute inset-0 rounded-[2rem] border border-line/60 bg-gradient-to-br from-card to-panel" />
             <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(80%_80%_at_70%_20%,rgba(16,185,129,0.18),transparent_70%)]" />
@@ -146,7 +144,7 @@ export default function Hero() {
               </g>
             </svg>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

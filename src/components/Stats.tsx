@@ -1,3 +1,5 @@
+import Reveal from '@/components/Reveal';
+
 const STATS = [
   { value: '10+', label: "années d'expérience" },
   { value: '100+', label: 'projets accompagnés' },
@@ -10,18 +12,14 @@ export default function Stats() {
       <div className="mx-auto max-w-5xl px-5 sm:px-6">
         <div className="grid gap-8 sm:grid-cols-3">
           {STATS.map((s, i) => (
-            <div
-              key={s.label}
-              className="reveal text-center"
-              style={{ transitionDelay: `${i * 100}ms` }}
-            >
+            <Reveal key={s.label} className="text-center" delay={i * 0.1}>
               <p className="font-display text-5xl font-bold tracking-tight text-brand sm:text-6xl">
                 {s.value}
               </p>
               <p className="mt-2 text-sm font-medium uppercase tracking-wide text-fg-subtle">
                 {s.label}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

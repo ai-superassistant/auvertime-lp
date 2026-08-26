@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react';
+import Reveal from '@/components/Reveal';
 import SectionHeading from '@/components/SectionHeading';
 
 const REASONS = [
@@ -17,7 +18,7 @@ export default function WhyUs() {
           Cinq engagements concrets, au service de vos résultats.
         </SectionHeading>
 
-        <div className="reveal mt-14 grid gap-4 sm:grid-cols-2">
+        <Reveal className="mt-14 grid gap-4 sm:grid-cols-2">
           {REASONS.map((reason) => (
             <div
               key={reason}
@@ -29,7 +30,7 @@ export default function WhyUs() {
               <span className="text-base font-medium text-fg">{reason}</span>
             </div>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
